@@ -61,4 +61,9 @@ setup(
         "Topic :: System :: Shells",
         "Topic :: Terminals",
     ],
+    entry_points={
+        "console_scripts": [
+            "register-python-argcomplete-test = argcomplete.entry:main",
+        ]
+    },
 )

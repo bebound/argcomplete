@@ -54,15 +54,16 @@ parser.add_argument("executable", nargs="+", help="executable to completed (when
 
 argcomplete.autocomplete(parser)
 
-if len(sys.argv) == 1:
-    parser.print_help()
-    sys.exit(1)
 
-args = parser.parse_args()
+def main():
+    if len(sys.argv) == 1:
+        parser.print_help()
+        sys.exit(1)
 
+    args = parser.parse_args()
 
-sys.stdout.write(
-    argcomplete.shellcode(
-        args.executable, args.use_defaults, args.shell, args.complete_arguments, args.external_argcomplete_script
+    sys.stdout.write(
+        argcomplete.shellcode(
+            args.executable, args.use_defaults, args.shell, args.complete_arguments, args.external_argcomplete_script
+        )
     )
-)
